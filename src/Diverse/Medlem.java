@@ -1,7 +1,7 @@
 package Diverse;
 // Alle i gruppen har kodet denne klasse
 
-public class Medlem {
+public abstract class Medlem {
   String medlemskabsStatus;
   String navn;
   String email;

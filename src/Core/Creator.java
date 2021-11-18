@@ -1,7 +1,9 @@
 package Core;
 
 import Diverse.Medlem;
+
 import java.util.Scanner;
+
 
 public class Creator {
 
@@ -30,8 +32,9 @@ public class Creator {
     System.out.println("Telefonnummer: ");
     String telefonnummerSvar = in.nextLine();
 
-    Medlem medlem = new Medlem(statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
+    //Her skal vi enten oprette en motionist eller en konkurrencesvømmer - ikke et "medlem".
+    //Medlem medlem = new Medlem(statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
 
-    return medlem;
+    //return Medlem;
   }
 }
