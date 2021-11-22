@@ -19,7 +19,7 @@ public class Creator {
     do {
       System.out.println("Aktivt eller passivt medlemskab: ");
       statusSvar = in.nextLine().toLowerCase().trim();;
-    } while (!statusSvar.equalsIgnoreCase("aktivt") && !statusSvar.equalsIgnoreCase("passivt"));
+    } while (!statusSvar.equalsIgnoreCase(  "aktivt") && !statusSvar.equalsIgnoreCase("passivt"));
 
     System.out.println("Navn: ");
     String navnSvar = in.nextLine();

@@ -7,6 +7,7 @@ public class Konkurrencesvømmer extends Medlem {
   String disciplin2;
   String disciplin3;
   String disciplin4;
+  int tid;
 
   public Konkurrencesvømmer(String disciplin1, String medlemsskabsStatus, String navn, String email, String telefonnummer, int alder) {
     super(medlemsskabsStatus, navn, email, telefonnummer, alder);
@@ -29,6 +30,14 @@ public class Konkurrencesvømmer extends Medlem {
     this.disciplin3 = disciplin2;
     this.disciplin3 = disciplin3;
     this.disciplin3 = disciplin4;
+  }
+
+  public void setTid(int tid) {
+    this.tid = tid;
+  }
+
+  public int getTid() {
+    return tid;
   }
 
 }
