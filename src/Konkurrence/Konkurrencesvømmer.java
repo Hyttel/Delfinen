@@ -40,4 +40,19 @@ public class Konkurrencesvømmer extends Medlem {
     return tid;
   }
 
+  public String getDisciplin1() {
+    return disciplin1;
+  }
+
+  public String getDisciplin2() {
+    return disciplin2;
+  }
+
+  public String getDisciplin3() {
+    return disciplin3;
+  }
+
+  public String getDisciplin4() {
+    return disciplin4;
+  }
 }

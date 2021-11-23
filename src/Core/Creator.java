@@ -45,33 +45,38 @@ public class Creator {
         && !konkurrenceSvømmer.equalsIgnoreCase("nej"));
 
     if (konkurrenceSvømmer.equalsIgnoreCase("ja")){
-      System.out.println("Hvor mange disipliner deltages der i? ");
-      int antalDiscipliner;
-      antalDiscipliner = in.nextInt();
+      System.out.println("Hvor mange discipliner deltages der i? ");
+      int antalDiscipliner = in.nextInt();
       if (antalDiscipliner == 1) {
-        System.out.println("Hvilken disiplin deltages der i? - butterfly, crawl, rygcrawl eller brystsvømning");
-        String disciplin1 = in.nextLine().toLowerCase().trim();;
+        System.out.println("Hvilken disciplin deltages der i? - Butterfly, crawl, rygcrawl eller brystsvømning");
+        in.nextLine();
+        String disciplin1 = in.nextLine().toLowerCase().trim();
         medlem = new Konkurrencesvømmer(disciplin1, statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
       }
       else if (antalDiscipliner == 2) {
-        System.out.println("Hvilke disipliner deltages der i? - butterfly, crawl, rygcrawl eller brystsvømning");
+        System.out.println("Hvilke discipliner deltages der i? - butterfly, crawl, rygcrawl eller brystsvømning");
+        in.nextLine();
         String disciplin1 = in.nextLine().toLowerCase().trim();
         System.out.println("nummer 2 disciplin?");
-        String disciplin2 = in.nextLine().toLowerCase().trim();;
-        medlem = new Konkurrencesvømmer(disciplin1,disciplin2, statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
+        String disciplin2 = in.nextLine().toLowerCase().trim();
+        medlem = new Konkurrencesvømmer(disciplin1, disciplin2, statusSvar, navnSvar, emailSvar, telefonnummerSvar,
+            alderSvar);
       }
       else if (antalDiscipliner == 3) {
-        System.out.println("Hvilken disiplin deltages der i? - butterfly, crawl, rygcrawl eller brystsvømning");
-        String disciplin1 = in.nextLine().toLowerCase().trim();;
+        System.out.println("Hvilken disciplin deltages der i? - butterfly, crawl, rygcrawl eller brystsvømning");
+        in.nextLine();
+        String disciplin1 = in.nextLine().toLowerCase().trim();
         System.out.println("nummer 2 disciplin?");
-        String disciplin2 = in.nextLine().toLowerCase().trim();;
+        String disciplin2 = in.nextLine().toLowerCase().trim();
         System.out.println("nummer 3 disciplin?");
-        String disciplin3 = in.nextLine().toLowerCase().trim();;
-        medlem = new Konkurrencesvømmer(disciplin1, disciplin2, disciplin3, statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
+        String disciplin3 = in.nextLine().toLowerCase().trim();
+        medlem = new Konkurrencesvømmer(disciplin1, disciplin2, disciplin3, statusSvar, navnSvar, emailSvar,
+            telefonnummerSvar, alderSvar);
       }
       else if (antalDiscipliner == 4) {
         System.out.println("Medlemmet er blevet tilmeldt alle 4 discipliner.");
-        medlem = new Konkurrencesvømmer("butterfly", "crawl", "rygcrawl", "brystsvømning", statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
+        medlem = new Konkurrencesvømmer("butterfly", "crawl", "rygcrawl",
+            "brystsvømning", statusSvar, navnSvar, emailSvar, telefonnummerSvar, alderSvar);
       }
     } else if (konkurrenceSvømmer.equalsIgnoreCase("nej")){
       medlem = new Motionist(statusSvar,navnSvar,emailSvar,telefonnummerSvar,alderSvar);
