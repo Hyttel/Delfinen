@@ -2,12 +2,12 @@ package Konkurrence;
 
 import Diverse.Medlem;
 
-public class Konkurrencesvømmer extends Medlem {
+public class Konkurrencesvømmer extends Medlem implements Comparable<Konkurrencesvømmer>{
   String disciplin1;
   String disciplin2;
   String disciplin3;
   String disciplin4;
-  int tid;
+  double tid;
 
   public Konkurrencesvømmer(String disciplin1, String medlemsskabsStatus, String navn, String email, String telefonnummer, int alder) {
     super(medlemsskabsStatus, navn, email, telefonnummer, alder);
@@ -27,16 +27,16 @@ public class Konkurrencesvømmer extends Medlem {
   public Konkurrencesvømmer(String disciplin1, String disciplin2, String disciplin3, String disciplin4, String medlemsskabsStatus, String navn, String email, String telefonnummer, int alder) {
     super(medlemsskabsStatus, navn, email, telefonnummer, alder);
     this.disciplin1 = disciplin1;
-    this.disciplin3 = disciplin2;
+    this.disciplin2 = disciplin2;
     this.disciplin3 = disciplin3;
-    this.disciplin3 = disciplin4;
+    this.disciplin4 = disciplin4;
   }
 
-  public void setTid(int tid) {
+  public void setTid(double tid) {
     this.tid = tid;
   }
 
-  public int getTid() {
+  public double getTid() {
     return tid;
   }
 
@@ -54,5 +54,17 @@ public class Konkurrencesvømmer extends Medlem {
 
   public String getDisciplin4() {
     return disciplin4;
+  }
+
+  @Override
+  public int compareTo(Konkurrencesvømmer o) {
+    if (this.tid < o.tid) {
+      return - 1;
+    }
+    if (this.tid == o.tid) {
+      return 0;
+    } else {
+      return 1;
+    }
   }
 }

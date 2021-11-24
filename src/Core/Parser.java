@@ -50,7 +50,7 @@ public class Parser {
     return senior60Medlemmer;
   }
 
-  public ArrayList<Medlem> getKonkurrenceMedlemmer() {
+  public ArrayList<Konkurrencesvømmer> getKonkurrenceMedlemmer() {
     return konkurrenceMedlemmer;
   }
 

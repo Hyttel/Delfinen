@@ -2,7 +2,6 @@ package Diverse;
 
 import Core.Controller;
 import Konkurrence.Konkurrencestyring;
-
 import java.util.Scanner;
 
 public class Menu {
@@ -64,11 +63,11 @@ public class Menu {
             break;
           case 2:
             angivKodeord();
-            //konkurrencestyring.startKonkurrence();
+            konkurrencestyring.startKonkurrence();
             break;
           case 3:
             angivKodeord();
-            //konkurrencestyring.visTopFem();
+            konkurrencestyring.visTopFem();
             break;
           case 9:
             System.out.println("Exiting program");
