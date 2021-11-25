@@ -9,6 +9,11 @@ public class Konkurrencesvømmer extends Medlem implements Comparable<Konkurrenc
   String disciplin4;
   double tid;
 
+  public Konkurrencesvømmer(String navn, double tid){
+    super(navn);
+    this.tid = tid;
+  }
+
   public Konkurrencesvømmer(String disciplin1, String medlemsskabsStatus, String navn, String email, String telefonnummer, int alder) {
     super(medlemsskabsStatus, navn, email, telefonnummer, alder);
     this.disciplin1 = disciplin1;
@@ -60,8 +65,7 @@ public class Konkurrencesvømmer extends Medlem implements Comparable<Konkurrenc
   public int compareTo(Konkurrencesvømmer o) {
     if (this.tid < o.tid) {
       return - 1;
-    }
-    if (this.tid == o.tid) {
+    }if (this.tid == o.tid) {
       return 0;
     } else {
       return 1;

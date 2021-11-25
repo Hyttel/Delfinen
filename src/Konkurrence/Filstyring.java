@@ -20,7 +20,7 @@ public class Filstyring {
       printRygFile = new PrintStream(rygFile);
       printButterfly = new PrintStream(butterflyFile);
     } catch (Exception exception) {
-      System.out.println("fejl 3");
+      System.out.println("fejl ved oprettelse af filer");
     }
   }
 

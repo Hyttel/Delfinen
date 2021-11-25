@@ -2,6 +2,7 @@ package Konkurrence;
 
 import Core.Parser;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -25,15 +26,15 @@ public class Konkurrencestyring {
     Konkurrencesvømmer Jens = new Konkurrencesvømmer("crawl", "aktivt", "jens", "asd@ad.dk", "12", 12);
     Konkurrencesvømmer bo = new Konkurrencesvømmer("crawl", "aktivt", "Bo", "asd@ad.dk", "12", 12);
     Konkurrencesvømmer chautelle = new Konkurrencesvømmer("crawl", "aktivt", "Chautelle", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer kim = new Konkurrencesvømmer("brystsvømning", "aktivt", "Kim", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer se = new Konkurrencesvømmer("butterfly", "aktivt", "se", "asd@ad.dk", "12", 12);
+    Konkurrencesvømmer kim = new Konkurrencesvømmer("crawl", "aktivt", "Kim", "asd@ad.dk", "12", 12);
+    Konkurrencesvømmer se = new Konkurrencesvømmer("crawl", "aktivt", "se", "asd@ad.dk", "12", 12);
     Konkurrencesvømmer henning = new Konkurrencesvømmer("rygsvømning", "aktivt", "Henning", "asd@ad.dk", "12", 12);
     Konkurrencesvømmer kenete = new Konkurrencesvømmer("butterfly", "aktivt", "Kennete", "asd@ad.dk", "12", 12);
 
-    brystsvømning.add(kim);
     rygsvømning.add(kenete);
-    butterfly.add(se);
     butterfly.add(henning);
+    crawl.add(se);
+    crawl.add(kim);
     crawl.add(Jens);
     crawl.add(bo);
     crawl.add(chautelle);
@@ -73,7 +74,8 @@ public class Konkurrencestyring {
           double tidBryst = tagTid();
           System.out.println("tid: " + tidBryst + " sekunder");
           brystsvømning.get(valg - 1).setTid(tidBryst);
-          filstyring.getPrintBrystFile().println(brystsvømning.get(valg - 1).getNavn() + " " + brystsvømning.get(valg - 1).getTid());
+          filstyring.getPrintBrystFile().println(brystsvømning.get(valg - 1).getNavn() + " "
+              + brystsvømning.get(valg - 1).getTid());
           break;
         case 3:
           System.out.println("Hvilken atlet vil du tage tid på?");
@@ -86,7 +88,8 @@ public class Konkurrencestyring {
           double tidRyg = tagTid();
           System.out.println("tid: " + tidRyg + " sekunder");
           rygsvømning.get(valg - 1).setTid(tidRyg);
-          filstyring.getPrintRygFile().println(rygsvømning.get(valg - 1).getNavn() + " " + rygsvømning.get(valg - 1).getTid());
+          filstyring.getPrintRygFile().println(rygsvømning.get(valg - 1).getNavn() + " "
+              + rygsvømning.get(valg - 1).getTid());
           break;
         case 4:
           System.out.println("Hvilken atlet vil du tage tid på?");
@@ -99,7 +102,8 @@ public class Konkurrencestyring {
           double tidButterfly = tagTid();
           System.out.println("tid: " + tidButterfly + " sekunder");
           butterfly.get(valg - 1).setTid(tidButterfly);
-          filstyring.getPrintButterfly().println(butterfly.get(valg - 1).getNavn() + " " + butterfly.get(valg - 1).getTid());
+          filstyring.getPrintButterfly().println(butterfly.get(valg - 1).getNavn() + " "
+              + butterfly.get(valg - 1).getTid());
           break;
         case 5:
           konkurrenceErIGang = false;
@@ -158,34 +162,78 @@ public class Konkurrencestyring {
             3. Rygsvømning
             4. Butterfly
             5. Tilbage til hovedmenu""");
-    int top5 = in.nextInt();
 
-    Collections.sort(crawl);
-    Collections.sort(rygsvømning);
-    Collections.sort(brystsvømning);
-    Collections.sort(butterfly);
+    try{
+      Scanner readCrawl = new Scanner(new File("topCrawl.txt"));
+      Scanner readBryst = new Scanner(new File("topBryst.txt"));
+      Scanner readRyg = new Scanner(new File("topRyg.txt"));
+      Scanner readButterfly = new Scanner(new File("topButterfly.txt"));
+
+      readCrawl.useLocale(Locale.US);
+      readBryst.useLocale(Locale.US);
+      readRyg.useLocale(Locale.US);
+      readButterfly.useLocale(Locale.US);
+
+      ArrayList<Konkurrencesvømmer> topFemCrawl = new ArrayList<>();
+      ArrayList<Konkurrencesvømmer> topFemBryst = new ArrayList<>();
+      ArrayList<Konkurrencesvømmer> topFemRyg = new ArrayList<>();
+      ArrayList<Konkurrencesvømmer> topFemButterfly = new ArrayList<>();
+
+    int top5 = in.nextInt();
 
     switch (top5) {
       case 1:
-        for (int i = 0; i <= 4; i++) {
-          System.out.println(crawl.get(i).getNavn() + ": " + crawl.get(i).getTid());
+        while(readCrawl.hasNext()) {
+          String navn = readCrawl.next();
+          double tid = readCrawl.nextDouble();
+          topFemCrawl.add(new Konkurrencesvømmer(navn, tid));
         }
+          Collections.sort(topFemCrawl);
+        if (topFemCrawl.size() >=5) {
+          for (int i = 0; i <= 4; i++) {
+            System.out.println(topFemCrawl.get(i).getNavn() + ": " + topFemCrawl.get(i).getTid());
+          }
+        }
+        else System.out.println("Der er ikke 5 svømmere i denne kategori");
+
         break;
       case 2:
+        while(readBryst.hasNext()){
+          String navn = readBryst.next();
+          double tid = readBryst.nextDouble();
+          topFemBryst.add(new Konkurrencesvømmer(navn,tid));
+        }
+        Collections.sort(topFemBryst);
         for (int i = 0; i <= 4; i++) {
-          System.out.println(brystsvømning.get(i).getNavn() + ": " + brystsvømning.get(i).getTid());
+          System.out.println(topFemBryst.get(i).getNavn() + ": " + topFemBryst.get(i).getTid());
         }
         break;
       case 3:
+        while(readRyg.hasNext()){
+          String navn = readRyg.next();
+          double tid = readRyg.nextDouble();
+          topFemRyg.add(new Konkurrencesvømmer(navn,tid));
+        }
+        Collections.sort(topFemRyg);
         for (int i = 0; i <= 4; i++) {
-          System.out.println(rygsvømning.get(i).getNavn() + ": " + rygsvømning.get(i).getTid());
+          System.out.println(topFemRyg.get(i).getNavn() + ": " + topFemRyg.get(i).getTid());
         }
         break;
       case 4:
+        while(readButterfly.hasNext()){
+          String navn = readButterfly.next();
+          double tid = readButterfly.nextDouble();
+          topFemButterfly.add(new Konkurrencesvømmer(navn,tid));
+        }
+        Collections.sort(topFemButterfly);
         for (int i = 0; i <= 4; i++) {
-          System.out.println(butterfly.get(i).getNavn() + ": " + butterfly.get(i).getTid());
+          System.out.println(topFemButterfly.get(i).getNavn() + ": " + topFemButterfly.get(i).getTid());
         }
         break;
     }
+    } catch (IOException exception) {
+      System.out.println("Doesn't work brah");
+    }
   }
 }
+

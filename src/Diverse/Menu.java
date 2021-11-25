@@ -2,6 +2,8 @@ package Diverse;
 
 import Core.Controller;
 import Konkurrence.Konkurrencestyring;
+
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Menu {
@@ -48,7 +50,7 @@ public class Menu {
       ff.printMenu();
     }
 
-    public void runMenu() {
+    public void runMenu() throws FileNotFoundException {
 
 
       boolean flag = true;
@@ -77,7 +79,7 @@ public class Menu {
       }
     }
 
-    private void angivKodeord() {
+    private void angivKodeord() throws FileNotFoundException {
       String kodeord = "sortsol12";
       Scanner in = new Scanner(System.in);
 

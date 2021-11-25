@@ -17,9 +17,14 @@ public abstract class Medlem {
     this.alder = alder;
   }
 
+  public Medlem (String navn){
+
+  }
+
   public void setMedlemskabsStatus(String medlemskabsStatus) {
     this.medlemskabsStatus = medlemskabsStatus;
   }
+
   public String getMedlemskabsStatus() {
     return medlemskabsStatus;
   }
