@@ -18,7 +18,7 @@ public abstract class Medlem {
   }
 
   public Medlem (String navn){
-
+  this.navn = navn;
   }
 
   public void setMedlemskabsStatus(String medlemskabsStatus) {

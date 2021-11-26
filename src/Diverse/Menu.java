@@ -86,15 +86,18 @@ public class Menu {
       System.out.println("Indtast kodeord");
       String svar = in.nextLine();
 
+      int i = 3;
+
       while (!svar.equals(kodeord)) {
-        for (int i = 0; i < 3; i++) {
-          System.out.println("Forkert kodeord. Prøv igen. Du har " + (2 - i) + " forsøg tilbage");
+          System.out.println("Forkert kodeord. Prøv igen. Du har " + (i - 1) + " forsøg tilbage");
           svar = in.nextLine();
-          if (i == 1) {
+          i = i - 1;
+
+          if (i == 0) {
             System.out.println("Du har opbrugt alle dine forsøg. Menu genindlæses.");
             runMenu();
           }
         }
       }
     }
-}
+
