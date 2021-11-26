@@ -89,7 +89,7 @@ public class Menu {
       int i = 3;
 
       while (!svar.equals(kodeord)) {
-          System.out.println("Forkert kodeord. Prøv igen. Du har " + (i - 1) + " forsøg tilbage");
+          System.out.println("Forkert kodeord. Prøv igen.. Du har " + (i - 1) + " forsøg tilbage");
           svar = in.nextLine();
           i = i - 1;
 
