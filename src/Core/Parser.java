@@ -2,11 +2,9 @@ package Core;
 
 import Diverse.Medlem;
 import Konkurrence.Konkurrencesvømmer;
-
 import java.util.ArrayList;
 
 public class Parser {
-  Controller controller = new Controller();
 
   private ArrayList<Medlem> passiveMedlemmer = new ArrayList<>();
   private ArrayList<Medlem> juniorMedlemmer = new ArrayList<>();
