@@ -1,6 +1,7 @@
 package Diverse;
 
 import Core.Controller;
+import Core.Parser;
 import Konkurrence.Konkurrencestyring;
 
 import java.io.FileNotFoundException;
@@ -52,19 +53,22 @@ public class Menu {
 
     public void runMenu() throws FileNotFoundException {
 
+      Konkurrencestyring konkurrencestyring = new Konkurrencestyring();
+      Controller controller = new Controller();
+      Parser parser = new Parser();
 
       boolean flag = true;
       while (flag) {
         menuTest();
-        Konkurrencestyring konkurrencestyring = new Konkurrencestyring();
 
         switch (readChoice()) {
           case 1:
-            Controller controller = new Controller();
             controller.lavMedlemsListe();
+            parser.sorterMedlemmer(controller.getMedlemmer());
             break;
           case 2:
             angivKodeord();
+            konkurrencestyring.sorterDisciplin(parser.getKonkurrenceMedlemmer());
             konkurrencestyring.startKonkurrence();
             break;
           case 3:
