@@ -4,7 +4,6 @@ import Diverse.Medlem;
 import Konkurrence.Konkurrencesvømmer;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Parser {
   Controller controller = new Controller();
@@ -15,21 +14,26 @@ public class Parser {
   private ArrayList<Medlem> senior60Medlemmer = new ArrayList<>();
   private ArrayList<Konkurrencesvømmer> konkurrenceMedlemmer = new ArrayList<>();
 
-  public void sorterMedlemmer() {
+  public void sorterMedlemmer(ArrayList<Medlem> medlemmer) {
+    konkurrenceMedlemmer.clear();
+    juniorMedlemmer.clear();
+    senior60Medlemmer.clear();
+    seniorMedlemmer.clear();
+    passiveMedlemmer.clear();
 
-    for (int i = 0; i < controller.getMedlemmer().size(); i++) {
-      if (controller.getMedlemmer().get(i) instanceof Konkurrencesvømmer) {
-        konkurrenceMedlemmer.add((Konkurrencesvømmer) controller.getMedlemmer().get(i));
+    for (int i = 0; i < medlemmer.size(); i++) {
+      if (medlemmer.get(i) instanceof Konkurrencesvømmer) {
+        konkurrenceMedlemmer.add((Konkurrencesvømmer) medlemmer.get(i));
       }
-      if (controller.getMedlemmer().get(i).getMedlemskabsStatus().equals("passivt")) {
-        passiveMedlemmer.add(controller.getMedlemmer().get(i));
+      if (medlemmer.get(i).getMedlemskabsStatus().equals("passivt")) {
+        passiveMedlemmer.add(medlemmer.get(i));
       }
-      if (controller.getMedlemmer().get(i).getAlder() < 18 && controller.getMedlemmer().get(i).getAlder() > 0) {
-        juniorMedlemmer.add(controller.getMedlemmer().get(i));
-      } else if (controller.getMedlemmer().get(i).getAlder() >= 18 && controller.getMedlemmer().get(i).getAlder() < 60){
-        seniorMedlemmer.add(controller.getMedlemmer().get(i));
-      } else if (controller.getMedlemmer().get(i).getAlder() >= 60) {
-        senior60Medlemmer.add(controller.getMedlemmer().get(i));
+      if (medlemmer.get(i).getAlder() < 18 && medlemmer.get(i).getAlder() > 0) {
+        juniorMedlemmer.add(medlemmer.get(i));
+      } else if (medlemmer.get(i).getAlder() >= 18 && medlemmer.get(i).getAlder() < 60){
+        seniorMedlemmer.add(medlemmer.get(i));
+      } else if (medlemmer.get(i).getAlder() >= 60) {
+        senior60Medlemmer.add(medlemmer.get(i));
       }
     }
   }

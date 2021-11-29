@@ -1,24 +1,23 @@
 package Core;
 
 import Diverse.Medlem;
+import Konkurrence.Konkurrencesvømmer;
+
 import java.util.ArrayList;
 
 public class Controller {
 
-  ArrayList<Medlem> medlemmer = new ArrayList<Medlem>();
+  ArrayList<Medlem> medlemmer = new ArrayList<>();
 
   public ArrayList<Medlem> getMedlemmer() {
     return medlemmer;
   }
 
-  //Tilføj til menu senere
   public void lavMedlemsListe() {
     Creator creator = new Creator();
     Medlem nytMedlem = creator.opretMedlem();
-
     angivPris(nytMedlem);
     medlemmer.add(nytMedlem);
-
     System.out.println("Årlige medlemskabskontigent: " + nytMedlem.getPris() + " kr.");
   }
 

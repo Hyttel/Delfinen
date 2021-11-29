@@ -1,11 +1,9 @@
 package Konkurrence;
 
-import Core.Parser;
+import Diverse.Medlem;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.*;
 
 
@@ -22,22 +20,6 @@ public class Konkurrencestyring {
 
   public void startKonkurrence() {
     filstyring.opretFiler();
-
-    Konkurrencesvømmer Jens = new Konkurrencesvømmer("crawl", "aktivt", "jens", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer bo = new Konkurrencesvømmer("crawl", "aktivt", "Bo", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer chautelle = new Konkurrencesvømmer("crawl", "aktivt", "Chautelle", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer kim = new Konkurrencesvømmer("crawl", "aktivt", "Kim", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer se = new Konkurrencesvømmer("crawl", "aktivt", "se", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer henning = new Konkurrencesvømmer("rygsvømning", "aktivt", "Henning", "asd@ad.dk", "12", 12);
-    Konkurrencesvømmer kenete = new Konkurrencesvømmer("butterfly", "aktivt", "Kennete", "asd@ad.dk", "12", 12);
-
-    rygsvømning.add(kenete);
-    butterfly.add(henning);
-    crawl.add(se);
-    crawl.add(kim);
-    crawl.add(Jens);
-    crawl.add(bo);
-    crawl.add(chautelle);
 
     while (konkurrenceErIGang) {
       System.out.println("Hvilken disciplin vil du tage tid på?\n" +
@@ -125,31 +107,29 @@ public class Konkurrencestyring {
   }
 
 
-  public void sorterDisciplin() {
+  public void sorterDisciplin(ArrayList<Konkurrencesvømmer> konkurrenceMedlemmer) {
 
-    Parser parser = new Parser();
-
-    for (int i = 0; i < parser.getKonkurrenceMedlemmer().size(); i++) {
-      if (parser.getKonkurrenceMedlemmer().get(i).getDisciplin1().equals("crawl")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin2().equals("crawl")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin3().equals("crawl")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin4().equals("crawl")) {
-        crawl.add(parser.getKonkurrenceMedlemmer().get(i));
-      } else if (parser.getKonkurrenceMedlemmer().get(i).getDisciplin1().equals("brystsvømning")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin2().equals("brystsvømning")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin3().equals("brystsvømning")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin4().equals("brystsvømning")) {
-        brystsvømning.add(parser.getKonkurrenceMedlemmer().get(i));
-      } else if (parser.getKonkurrenceMedlemmer().get(i).getDisciplin1().equals("rygsvømning")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin2().equals("rygsvømning")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin3().equals("rygsvømning")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin4().equals("rygsvømning")) {
-        rygsvømning.add(parser.getKonkurrenceMedlemmer().get(i));
-      } else if (parser.getKonkurrenceMedlemmer().get(i).getDisciplin1().equals("butterfly")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin2().equals("butterfly")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin3().equals("butterfly")
-          || parser.getKonkurrenceMedlemmer().get(i).getDisciplin4().equals("butterfly")) {
-        butterfly.add(parser.getKonkurrenceMedlemmer().get(i));
+    for (int i = 0; i < konkurrenceMedlemmer.size(); i++) {
+      if (konkurrenceMedlemmer.get(i).getDisciplin1().equals("crawl")
+          || konkurrenceMedlemmer.get(i).getDisciplin2().equals("crawl")
+          || konkurrenceMedlemmer.get(i).getDisciplin3().equals("crawl")
+          || konkurrenceMedlemmer.get(i).getDisciplin4().equals("crawl")) {
+        crawl.add(konkurrenceMedlemmer.get(i));
+      } else if (konkurrenceMedlemmer.get(i).getDisciplin1().equals("brystsvømning")
+          || konkurrenceMedlemmer.get(i).getDisciplin2().equals("brystsvømning")
+          || konkurrenceMedlemmer.get(i).getDisciplin3().equals("brystsvømning")
+          || konkurrenceMedlemmer.get(i).getDisciplin4().equals("brystsvømning")) {
+        brystsvømning.add(konkurrenceMedlemmer.get(i));
+      } else if (konkurrenceMedlemmer.get(i).getDisciplin1().equals("rygsvømning")
+          || konkurrenceMedlemmer.get(i).getDisciplin2().equals("rygsvømning")
+          || konkurrenceMedlemmer.get(i).getDisciplin3().equals("rygsvømning")
+          || konkurrenceMedlemmer.get(i).getDisciplin4().equals("rygsvømning")) {
+        rygsvømning.add(konkurrenceMedlemmer.get(i));
+      } else if (konkurrenceMedlemmer.get(i).getDisciplin1().equals("butterfly")
+          || konkurrenceMedlemmer.get(i).getDisciplin2().equals("butterfly")
+          || konkurrenceMedlemmer.get(i).getDisciplin3().equals("butterfly")
+          || konkurrenceMedlemmer.get(i).getDisciplin4().equals("butterfly")) {
+        butterfly.add(konkurrenceMedlemmer.get(i));
       }
     }
   }
