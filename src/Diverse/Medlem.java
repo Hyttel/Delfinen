@@ -7,7 +7,7 @@ public abstract class Medlem {
   String email;
   String telefonnummer;
   int alder;
-  double pris;
+  int pris;
 
   public Medlem (String medlemsskabsStatus, String navn, String email, String telefonnummer, int alder) {
     this.medlemskabsStatus = medlemsskabsStatus;
@@ -57,10 +57,10 @@ public abstract class Medlem {
     return alder;
   }
 
-  public void setPris(double pris) {
+  public void setPris(int pris) {
     this.pris = pris;
   }
-  public double getPris() {
+  public int getPris() {
     return pris;
   }
 }
