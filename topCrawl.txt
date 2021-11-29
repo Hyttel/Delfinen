@@ -1,1 +1,5 @@
-nummeret 0.65
+Sofie 0.978
+mads 0.398
+jens 0.217
+kevin 0.337
+Henning 0.279

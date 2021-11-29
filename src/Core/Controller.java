@@ -14,6 +14,7 @@ public class Controller {
   }
 
   public void lavMedlemsListe() {
+
     Creator creator = new Creator();
     Medlem nytMedlem = creator.opretMedlem();
     angivPris(nytMedlem);

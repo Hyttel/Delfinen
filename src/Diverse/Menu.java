@@ -3,7 +3,6 @@ package Diverse;
 import Core.Controller;
 import Core.Parser;
 import Konkurrence.Konkurrencestyring;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
