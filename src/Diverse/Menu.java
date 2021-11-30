@@ -44,8 +44,13 @@ public class Menu {
       System.out.println("\n");
       String header = "MENU:";
       String text = "Vælg menupunkt: ";
-      String[] items = {"1. Registrer Medlem", "2. Gem Konkurrenceoplysninger", "3. Vis oversigt over topsvømmere",
-          "9. QUIT"};
+      String[] items = {"""
+          1. Registrer Medlem
+          2. Gem Konkurrenceoplysninger
+          3. Vis oversigt over topsvømmere
+          4. Vis klubbens regnskab
+          9. Afslut program
+          """};
       Menu ff = new Menu(header, items, text);
       ff.printMenu();
     }
@@ -55,6 +60,7 @@ public class Menu {
       Konkurrencestyring konkurrencestyring = new Konkurrencestyring();
       Controller controller = new Controller();
       Parser parser = new Parser();
+      Regnskab regnskab = new Regnskab();
 
       boolean flag = true;
       while (flag) {
@@ -74,8 +80,21 @@ public class Menu {
             angivKodeord();
             konkurrencestyring.visTopFem();
             break;
+          case 4:
+            angivRegnskabsKodeord();
+
+            System.out.println("Vælg et af følgende punkter: \n1. Restance\n2. Forretning");
+            Scanner in = new Scanner(System.in);
+            int svar = in.nextInt();
+
+            if (svar == 1) {
+              regnskab.visRestance(controller.getMedlemmer());
+            } else if (svar == 2) {
+              regnskab.visForretning(controller.getMedlemmer());
+            }
+            break;
           case 9:
-            System.out.println("Exiting program");
+            System.out.println("Afslutter programmet");
             flag = false;
             break;
         }
@@ -102,5 +121,25 @@ public class Menu {
           }
         }
       }
+  private void angivRegnskabsKodeord() throws FileNotFoundException {
+    String kodeord = "hvidsol12";
+    Scanner in = new Scanner(System.in);
+
+    System.out.println("Indtast kodeord");
+    String svar = in.nextLine();
+
+    int i = 3;
+
+    while (!svar.equals(kodeord)) {
+      System.out.println("Forkert kodeord. Prøv igen.. Du har " + (i - 1) + " forsøg tilbage");
+      svar = in.nextLine();
+      i = i - 1;
+
+      if (i == 0) {
+        System.out.println("Du har opbrugt alle dine forsøg. Menu genindlæses.");
+        runMenu();
+      }
+    }
+  }
     }
 

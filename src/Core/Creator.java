@@ -23,9 +23,20 @@ public class Creator {
     System.out.println("Navn: ");
     String navnSvar = in.nextLine();
 
-    System.out.println("Alder: ");
-    int alderSvar = in.nextInt();
-    in.nextLine();
+
+    int alderSvar = 0;
+    System.out.println("Alder?");
+    if (in.hasNextInt()) {
+      alderSvar = in.nextInt();
+      in.nextLine();
+    } else {
+      while (!in.hasNextInt()) {
+        System.out.println("Alder?");
+        in.next();
+      }
+      alderSvar = in.nextInt();
+      in.nextLine();
+    }
 
     String emailSvar;
     do {
@@ -45,7 +56,27 @@ public class Creator {
 
     if (konkurrenceSvømmer.equalsIgnoreCase("ja")){
       System.out.println("Hvor mange discipliner deltages der i? ");
-      int antalDiscipliner = in.nextInt();
+
+      int antalDiscipliner;
+      antalDiscipliner = in.nextInt();
+      if (antalDiscipliner < 5 && antalDiscipliner > 0) {
+        System.out.println("Niklas sutter fed røv");
+        antalDiscipliner = in.nextInt();
+        in.nextLine();
+      } else if (antalDiscipliner < 0 || antalDiscipliner > 5) {
+        while (antalDiscipliner < 0 || antalDiscipliner > 5) {
+          System.out.println("Hvor mange discipliner deltages der i? ");
+          antalDiscipliner = in.nextInt();
+        }
+      } else {
+        while (!in.hasNextInt()) {
+          System.out.println("Hvor mange discipliner deltages der i? ");
+          in.next();
+        }
+        antalDiscipliner = in.nextInt();
+        in.nextLine();
+      }
+
       if (antalDiscipliner == 1) {
         System.out.println("Hvilken disciplin deltages der i? - Butterfly, crawl, rygcrawl eller brystsvømning");
         in.nextLine();

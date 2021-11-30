@@ -1,8 +1,6 @@
 package Core;
 
 import Diverse.Medlem;
-import Konkurrence.Konkurrencesvømmer;
-
 import java.util.ArrayList;
 
 public class Controller {
@@ -27,7 +25,7 @@ public class Controller {
     if (medlem.getMedlemskabsStatus().equalsIgnoreCase("passivt")) {
       medlem.setPris(500);
     } else if (medlem.getAlder() >= 60) {
-      medlem.setPris(1600*0.75);
+      medlem.setPris((int) (1600*0.75));
     } else if (medlem.getAlder() < 60 && medlem.getAlder() >= 18) {
       medlem.setPris(1600);
     } else if (medlem.getAlder() < 18) {
