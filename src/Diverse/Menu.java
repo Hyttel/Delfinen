@@ -34,7 +34,7 @@ public class Menu {
       if (!scanner.hasNextInt()) {
         while (!scanner.hasNextInt()) {
           System.out.println("Wrong input. try again, enter a number: ");
-          System.out.println(this.leadText);
+          scanner.next();
         }
       }
       return scanner.nextInt();
@@ -63,6 +63,7 @@ public class Menu {
       Regnskab regnskab = new Regnskab();
 
       boolean flag = true;
+
       while (flag) {
         menuTest();
 
@@ -82,11 +83,9 @@ public class Menu {
             break;
           case 4:
             angivRegnskabsKodeord();
-
             System.out.println("Vælg et af følgende punkter: \n1. Restance\n2. Forretning");
             Scanner in = new Scanner(System.in);
             int svar = in.nextInt();
-
             if (svar == 1) {
               regnskab.visRestance(controller.getMedlemmer());
             } else if (svar == 2) {
