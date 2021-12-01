@@ -1,5 +1,5 @@
 package Diverse;
-// Alle i gruppen har kodet denne klasse
+//Alle i gruppen har kodet denne klasse i fællesskab
 
 public abstract class Medlem {
   String medlemskabsStatus;

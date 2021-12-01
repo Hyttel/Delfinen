@@ -1,4 +1,5 @@
 package Diverse;
+//Alle i gruppen har kodet denne klasse i fællesskab
 
 import java.util.ArrayList;
 
