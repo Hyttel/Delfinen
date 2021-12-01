@@ -103,7 +103,6 @@ public class Konkurrencestyring {
     System.out.println("Tryk 'enter' for at stoppe tiden igen");
     in.nextLine();
     stopur.stop();
-
     return stopur.tidIMillisekunder() / 1000.00;
   }
 

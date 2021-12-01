@@ -120,6 +120,7 @@ public class Menu {
           }
         }
       }
+
   private void angivRegnskabsKodeord() throws FileNotFoundException {
     String kodeord = "hvidsol12";
     Scanner in = new Scanner(System.in);
