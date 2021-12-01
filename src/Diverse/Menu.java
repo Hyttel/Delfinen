@@ -33,7 +33,7 @@ public class Menu {
       Scanner scanner = new Scanner(System.in);
       if (!scanner.hasNextInt()) {
         while (!scanner.hasNextInt()) {
-          System.out.println("Wrong input. try again, enter a number: ");
+          System.out.println("Forkert indtastning, indtast et nummer:");
           scanner.next();
         }
       }

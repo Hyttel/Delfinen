@@ -4,6 +4,7 @@ import Diverse.Medlem;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.*;
 
 
@@ -172,10 +173,11 @@ public class Konkurrencestyring {
         if (topFemCrawl.size() >=5) {
           for (int i = 0; i <= 4; i++) {
             System.out.println(topFemCrawl.get(i).getNavn() + ": " + topFemCrawl.get(i).getTid());
+            filstyring.getTop5Crawl().println(topFemCrawl.get(i).getNavn() + " "
+                + topFemCrawl.get(i).getTid());
           }
         }
         else System.out.println("Der er ikke 5 svømmere i denne kategori");
-
         break;
       case 2:
         while(readBryst.hasNext()){
@@ -184,9 +186,14 @@ public class Konkurrencestyring {
           topFemBryst.add(new Konkurrencesvømmer(navn,tid));
         }
         Collections.sort(topFemBryst);
-        for (int i = 0; i <= 4; i++) {
-          System.out.println(topFemBryst.get(i).getNavn() + ": " + topFemBryst.get(i).getTid());
+        if (topFemBryst.size() >=5) {
+          for (int i = 0; i <= 4; i++) {
+            System.out.println(topFemBryst.get(i).getNavn() + ": " + topFemBryst.get(i).getTid());
+            filstyring.getTop5Bryst().println(topFemBryst.get(i).getNavn() + " "
+                + topFemBryst.get(i).getTid());
+          }
         }
+        else System.out.println("Der er ikke 5 svømmere i denne kategori");
         break;
       case 3:
         while(readRyg.hasNext()){
@@ -195,9 +202,14 @@ public class Konkurrencestyring {
           topFemRyg.add(new Konkurrencesvømmer(navn,tid));
         }
         Collections.sort(topFemRyg);
+        if (topFemRyg.size() >=5) {
         for (int i = 0; i <= 4; i++) {
           System.out.println(topFemRyg.get(i).getNavn() + ": " + topFemRyg.get(i).getTid());
+          filstyring.getTop5Ryg().println(topFemRyg.get(i).getNavn() + " "
+              + topFemRyg.get(i).getTid());
+          }
         }
+        else System.out.println("Der er ikke 5 svømmere i denne kategori");
         break;
       case 4:
         while(readButterfly.hasNext()){
@@ -206,13 +218,18 @@ public class Konkurrencestyring {
           topFemButterfly.add(new Konkurrencesvømmer(navn,tid));
         }
         Collections.sort(topFemButterfly);
+        if (topFemButterfly.size() >=5) {
         for (int i = 0; i <= 4; i++) {
           System.out.println(topFemButterfly.get(i).getNavn() + ": " + topFemButterfly.get(i).getTid());
+          filstyring.getTop5Butterfly().println(topFemButterfly.get(i).getNavn() + " "
+              + topFemButterfly.get(i).getTid());
+          }
         }
+        else System.out.println("Der er ikke 5 svømmere i denne kategori");
         break;
     }
     } catch (IOException exception) {
-      System.out.println("Doesn't work brah");
+      System.out.println("Kan ikke finde filerne på computeren");
     }
   }
 }
