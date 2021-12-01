@@ -1,4 +1,5 @@
 package Core;
+//Alle i gruppen har kodet denne klasse i fællesskab
 
 import Diverse.Menu;
 import Konkurrence.Konkurrencestyring;

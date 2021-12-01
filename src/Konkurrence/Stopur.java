@@ -1,4 +1,5 @@
 package Konkurrence;
+//Alle i gruppen har kodet denne klasse i fællesskab
 
 public class Stopur {
   private final int nanoSekunderPerMillisekunder = 1000000;
