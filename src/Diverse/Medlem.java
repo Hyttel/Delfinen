@@ -21,38 +21,14 @@ public abstract class Medlem {
   this.navn = navn;
   }
 
-  public void setMedlemskabsStatus(String medlemskabsStatus) {
-    this.medlemskabsStatus = medlemskabsStatus;
-  }
-
   public String getMedlemskabsStatus() {
     return medlemskabsStatus;
   }
 
-  public void setNavn(String navn) {
-    this.navn = navn;
-  }
   public String getNavn() {
     return navn;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-  public String getEmail() {
-    return email;
-  }
-
-  public void setTelefonnummer(String telefonnummer) {
-    this.telefonnummer = telefonnummer;
-  }
-  public String getTelefonnummer() {
-    return telefonnummer;
-  }
-
-  public void setAlder(int alder) {
-    this.alder = alder;
-  }
   public int getAlder() {
     return alder;
   }
